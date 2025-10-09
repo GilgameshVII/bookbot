@@ -1,17 +1,19 @@
 #   Prints the contents of a txt file.
+from stats import get_num_words, get_chars_dict
 
-from stats import word_count, character_count, sort_on
 
-
-def get_book_text(file_path):
-    with open(file_path) as f:
-        file_contents = f.read()
-        print(file_contents)
-        word_count(file_contents)
-        character_count(file_contents)
-
-    
 def main():
-    get_book_text("/home/jordan/workspace/github.com/GilgameshVII/books/frankenstein.txt")
+    book_path = "github.com/GilgameshVII/books/frankenstein.txt"
+    text = get_book_text(book_path)
+    num_words = get_num_words(text)
+    chars_dict = get_chars_dict(text)
+    print(f"Found {num_words} total words")
+    print(chars_dict)
+
+
+def get_book_text(path):
+    with open(path) as f:
+        return f.read()
+
 
 main()
